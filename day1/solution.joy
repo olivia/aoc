@@ -1,6 +1,5 @@
 0 "day1/input" "r" fopen -1 
 [swap feof]
-  [id]
+  []
   [rotate swap fget dup rolldownd > rolldownd swap dup succ choice swapd]
-  [id]
-linrec.
+tailrec.
