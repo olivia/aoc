@@ -1,0 +1,31 @@
+DEFINE
+
+sum == 0 [+] fold;
+sumd == [sum] dip;
+avg == [0 [+] fold]   [size]   cleave   /
+.
+
+[0 0 0] "day1/input2" "r" fopen -3 
+[swap feof null]
+  [rotate swap fget rolldown dup rollup cons 3 take dup rollup sumd sum >= rolldownd swap dup succ choice swapd]
+while.
+
+(*
+[0 0 0] fs -3
+-3 [0 0 0] fs   # rollup (rotate swap)
+-3 [0 0 0] fs 199   # fget
+-3 fs 199 [0 0 0] # rolldown
+-3 fs 199 [0 0 0] [0 0 0] # dup
+-3 fs [0 0 0] 199 [0 0 0] # rollup
+-3 fs [0 0 0] [199 0 0 0] # cons
+-3 fs [0 0 0] [199 0 0] # 3 take
+-3 fs [0 0 0] [199 0 0] [199 0 0] # dup
+-3 fs [199 0 0] [0 0 0] [199 0 0] # rollup
+-3 fs [199 0 0] 0 199 # sumd sum
+-3 fs [199 0 0] false # >=
+fs [199 0 0] -3 false # rolldownd
+fs [199 0 0] false -3 # swap
+fs [199 0 0] false -3 -2 # dup succ
+fs [199 0 0] -2 # choice
+fs [199 0 0] -2 # swapd
+*)

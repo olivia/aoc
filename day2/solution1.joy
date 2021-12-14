@@ -1,0 +1,104 @@
+DEFINE
+  updog == rollup;
+  updogd == [updog] dip;
+  downdog == rolldown;
+  downdogd == [downdog] dip;
+  add_pair == [uncons uncons pop] dip uncons uncons pop swapd + [+] dip [] cons cons;
+  astrosign == fget swap fget downdog [[["forward" =] 0] [["down" =]  1] [["up" =]  [+]] ] cond popd popd downdogd;
+.
+
+
+[0 0] "day2/input2" "r" fopen
+[feof null]
+[
+  fget swap fget downdog
+  [
+    [ ["forward" =] pop [0] cons ]
+    [ ["down" =] pop [] cons 0 swons ]
+    [ ["up" =] pop neg [] cons 0 swons ]
+    ["error"]
+  ] cond
+  swapd
+  add_pair
+  swap
+]
+while
+stack.
+
+(*
+
+[0 0] "day2/testinput2" "r" fopen
+[feof null]
+[
+  fget swap fget downdog
+  [
+    [ ["forward" =] pop [0] cons]
+    [ ["down" =] pop [] cons 0 swons ]
+    [ ["up" =] pop 0 - [] cons 0 swons ]
+  ] cond
+  swapd
+  add_pair
+  swap
+]
+while
+stack.
+
+[0 0] "day2/testinput2" "r" fopen
+  fget swap fget downdog
+  [
+    [ ["forward" =] pop [0] cons]
+    [ ["down" =] pop [] cons 0 swons ]
+    [ ["up" =] pop 0 - [] cons 0 swons ]
+  ] cond
+  swapd
+  add_pair
+  swap
+stack.
+
+
+
+[] "day2/testinput2" "r" fopen
+[feof null]
+[
+  fget
+  swapd
+  swons
+  swap
+]
+while
+stack.
+
+*)
+
+(*
+    fget swap fget downdog
+    [
+      [ ["forward" =] pop [0] cons]
+      [ ["down" =] pop [] cons 0 swons ]
+      [ ["up" =] pop 0 - [] cons 0 swons ]
+    ] cond
+    swapd
+    add_pair
+    swap
+  stack. 
+
+#[4 5] [3 4] add_pair.
+#5 [0] cons -> [5 0]
+#5 [] cons 0 swons -> [0 5]
+*)
+
+(* 
+h v fs 
+
+[0 0] fs "forward" #fget
+[0 0] "forward" fs #swap
+[0 0] "forward" fs 5 #fget
+[0 0] fs 5 "forward" #downdog
+...
+[0 0] fs [5 0]
+fs [0 0] [5 0] #swapd
+fs [5 0] #add_pair
+[5 0] fs #swap 
+
+*)
+2 [0 0] -> 1 drop

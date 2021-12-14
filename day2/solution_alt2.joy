@@ -1,0 +1,26 @@
+DEFINE
+  updog == rollup;
+  updogd == [updog] dip;
+  downdog == rolldown;
+  downdogd == [downdog] dip;
+  astrosign == fget swap fget downdog 
+  [
+    [["forward" =] downdogd pop [dup dup 0 at downdog + swap 1 drop cons]] 
+    [["up" =] downdogd pop [dup 2 at downdog - swap 2 take swap [] cons concat]]
+    [["down" =] downdogd pop [dup 2 at downdog + swap 2 take swap [] cons concat]]
+    ["error"]
+  ] cond i swap;
+.
+
+# x y d
+[0 0 0] "day2/testinput_alt" "r" fopen 
+[feof null] 
+[astrosign]
+while swap.
+
+#uncons uncons pop *. 
+
+
+
+
+

@@ -1,5 +1,22 @@
 0 "day1/input" "r" fopen -1 
-[swap feof]
-  []
+[swap feof null]
   [rotate swap fget dup rolldownd > rolldownd swap dup succ choice swapd]
-tailrec.
+while.
+
+lastVal, fs, counter
+-999999 fs -1
+
+-1 fs 0
+-1 0 fs
+-1 0 fs 100
+-1 0 fs 100 100
+-1 fs 100 0 100
+-1 fs 100 false
+fs 100 -1 false
+fs 100 false -1
+fs 100 false -1 -1
+fs 100 false -1 0
+fs 100 0
+100 fs 0
+
+
